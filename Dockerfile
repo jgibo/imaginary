@@ -1,9 +1,9 @@
-ARG GOLANG_VERSION=1.17
+ARG GOLANG_VERSION=1.20
 FROM golang:${GOLANG_VERSION}-bullseye as builder
 
 ARG IMAGINARY_VERSION=dev
 ARG LIBVIPS_VERSION=8.12.2
-ARG GOLANGCILINT_VERSION=1.29.0
+ARG GOLANGCILINT_VERSION=1.53.3
 
 # Installs libvips + required libraries
 RUN DEBIAN_FRONTEND=noninteractive \
@@ -57,7 +57,7 @@ RUN golangci-lint run .
 RUN go build -a \
     -o ${GOPATH}/bin/imaginary \
     -ldflags="-s -w -h -X main.Version=${IMAGINARY_VERSION}" \
-    github.com/h2non/imaginary
+    github.com/jgibo/imaginary
 
 FROM debian:bullseye-slim
 

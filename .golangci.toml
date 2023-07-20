@@ -37,7 +37,6 @@
 #        "goconst",
         "gocyclo",
 #        "maligned",
-        "depguard",
         "misspell",
         "unparam",
         "scopelint", # Would like to ignore *_test.go files, but can't atm.

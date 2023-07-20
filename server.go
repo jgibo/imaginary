@@ -93,7 +93,7 @@ func Server(o ServerOptions) {
 	}()
 
 	if err := server.Shutdown(ctx); err != nil {
-		log.Fatalf("Server Shutdown Failed:%+v", err)
+		log.Printf("Server Shutdown Failed:%+v", err)
 	}
 }
 
